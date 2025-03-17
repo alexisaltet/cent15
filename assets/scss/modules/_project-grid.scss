@@ -1,0 +1,23 @@
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--item-width, 20%), 1fr));
+    gap: 10vw;
+    max-width: 100%;
+    align-items: end;
+    margin-top: 5vw;
+}
+
+.project-grid_item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .project-grid img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+  }

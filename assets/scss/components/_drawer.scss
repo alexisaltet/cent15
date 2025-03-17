@@ -19,6 +19,7 @@
         text-align: right;
         justify-content: flex-end;
         cursor: pointer;
+        user-select: none;
         .glyph {
             color: inherit;
         }

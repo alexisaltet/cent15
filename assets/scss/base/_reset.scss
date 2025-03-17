@@ -38,3 +38,12 @@
     text-decoration: none;
     color: inherit;
   }
+
+
+
+html, body {
+  overflow: -moz-scrollbars-none;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

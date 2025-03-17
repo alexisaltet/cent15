@@ -1,0 +1,13 @@
+.project-control-panel {
+    display: flex;
+    .filters {
+        margin-left: 10vw;
+        a {
+            display: block;
+            cursor: pointer;
+            &:not(:last-child) {
+                margin-bottom: calc(var(--main-padding) / 2);
+            }
+        }
+    }
+}

@@ -10,14 +10,58 @@
 <br>
 <br>
     <!-- <h1><?= $page->title() ?></h1> -->
-     <main>
-         <p class="active"><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> TOUT</p>
-         <p><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> LOGEMENT</p>
-         <p><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> TERTIAIRE</p>
-         <p><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> CULTURE</p>
-         <p class="active"><span class="mono">[</span><span class="glyph">/</span><span class="mono">]</span>
-         <p>-------</p>
-         <p>0810 // Salle de spectacle / trianon / restaurer</p>
+    <main>
+        <!-- <p class="active"><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> TOUT</p>
+        <p><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> LOGEMENT</p>
+        <p><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> TERTIAIRE</p>
+        <p><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> CULTURE</p>
+        <p class="active"><span class="mono">[</span><span class="glyph">/</span><span class="mono">]</span>
+        <p>-------</p>
+        <p>0810 // Salle de spectacle / trianon / restaurer</p> -->
+        <div class="project-control-panel">
+            <div class="controls">
+                <label for="volume">ZOOM</label>
+                <input class="project-grid_range" type="range" id="volume" name="volume" min="1" max="65" />
+            </div>
+            <div class="filters">
+                <a class="active"><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> TOUT</a>
+                <a><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> LOGEMENT</a>
+                <a><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> TERTIAIRE</a>
+                <a><span class="mono">[</span><span class="glyph">X</span><span class="mono">]</span> CULTURE</a>
+            </div>
+        </div>
+        <div class="project-grid">
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/1.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/2.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/4.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/3.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/6.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/5.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/8.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/10.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/9.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+            <a class="project-grid_item">
+                <img src="<?= url('assets/img/7.jpg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?>">
+            </a>
+         </div>
      </main>
 
      <aside class="contact-panel">
@@ -37,6 +81,44 @@
         Nesciunt nihil nisi, veritatis eligendi voluptas sapiente, 
         nemo veniam aliquid maiores dolor dolorum tempora omnis dolores.
      </aside>
+
+
+     <script>
+const rangeInput = document.querySelector('.project-grid_range');
+const grid = document.querySelector('.project-grid');
+
+// Set default CSS variables for easier adjustments
+const updateGrid = (value) => {
+  const minSize = 5; // Minimum width percentage
+  const midSize = 15; // Mid-range width percentage
+  const maxSize = 100; // Maximum width percentage
+  let size;
+  
+  if (value < 50) {
+    size = minSize + (midSize - minSize) * (value / 50);
+  } else {
+    size = midSize + (maxSize - midSize) * ((value - 50) / 50);
+  }
+  
+  // Ensure that when the slider is at max, items take full width
+  if (value == 65) { // Using 65 since that's your max value
+    grid.style.setProperty('--item-width', `100%`);
+  } else {
+    grid.style.setProperty('--item-width', `${size}%`);
+  }
+};
+
+rangeInput.addEventListener('input', (e) => {
+  updateGrid(e.target.value);
+});
+
+// Initialize grid size on load
+updateGrid(rangeInput.value);
+     </script>
+
+
+
+
 
      <script>
         function display_c(){
@@ -90,6 +172,7 @@
     function openDrawer(targetDrawer) {
         closeAllDrawers(); // Close any other open drawers first
         targetDrawer.classList.add("open-drawer");
+       
     }
 
     // Handle menu button click

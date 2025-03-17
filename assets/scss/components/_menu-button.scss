@@ -1,4 +1,6 @@
 .menu-button {
+    padding: var(--main-padding);
+    user-select: none;
     .glyph {
        color: #333;
    }

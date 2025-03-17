@@ -2,10 +2,10 @@
     <a class="main-menu_item brand">
         <img src="<?= url('assets/img/ui/logo.svg') ?>?v=<?= time() ?>" alt="<?= $site->title() ?> Architecture">
     </a>
-    <span class="main-menu_item hide-on-hover-desktop">
+    <span class="main-menu_item time hide-on-hover-desktop">
         <span><span id='ct'></span><span>&nbsp;/PARIS</span></span>
     </span>
-    <a class="main-menu_item hide-on-hover-desktop" href="" target="_blank">
+    <a class="main-menu_item social hide-on-hover-desktop" href="" target="_blank">
         INSTA
     </a>
     <div class="main-menu_item lang-switcher hide-on-hover">
