@@ -1,0 +1,13 @@
+.lang-switcher {
+    a:first-child {
+        margin-right: var(--main-padding);
+    }
+    a {
+        cursor: pointer;
+        &:not(.active):hover {
+            .glyph {
+                color: #333;
+            }
+        }
+    }
+}

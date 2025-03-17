@@ -1,37 +1,32 @@
-/* 1. Use a more-intuitive box-sizing model */
+:root {
+  --main-padding: 10.48px;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
 * {
   margin: 0;
 }
 
 body {
-  /* 3. Add accessible line-height */
   line-height: 1.5;
-  /* 4. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
 }
 
-/* 5. Improve media defaults */
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
 
-/* 6. Inherit fonts for form controls */
 input, button, textarea, select {
   font: inherit;
 }
 
-/* 7. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-/* 8. Improve line wrapping */
 p {
   text-wrap: pretty;
 }
@@ -40,11 +35,13 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-/*
-  9. Create a root stacking context
-*/
 #root, #__next {
   isolation: isolate;
+}
+
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 body {
@@ -56,10 +53,7 @@ body {
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-p {
-  font-size: 10px;
+  font-size: 10.48px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #333;
@@ -83,7 +77,207 @@ p {
 }
 
 main {
-  padding: 10.48px;
+  padding: var(--main-padding);
+}
+
+.menu-button .glyph {
+  color: #333;
+}
+
+#ct {
+  width: 54px;
+  overflow: visible;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.lang-switcher a:first-child {
+  margin-right: var(--main-padding);
+}
+.lang-switcher a {
+  cursor: pointer;
+}
+.lang-switcher a:not(.active):hover .glyph {
+  color: #333;
+}
+
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+.main-menu_item {
+  padding: var(--main-padding);
+}
+
+.has_sub-menu {
+  position: relative;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .has_sub-menu:hover .show-submenu {
+    visibility: hidden;
+  }
+  .has_sub-menu:hover .sub-menu {
+    display: flex;
+  }
+}
+
+.sub-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+.sub-menu .close-btn {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .sub-menu {
+    background-color: #4F4D49;
+    color: white;
+    position: fixed;
+    height: 100%;
+    width: 535px;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    padding: var(--main-padding);
+  }
+}
+@media screen and (max-width: 768px) and (max-width: 630px) {
+  .sub-menu {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sub-menu .close-btn {
+    white-space: nowrap;
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+  .sub-menu .close-btn .glyph {
+    color: inherit;
+  }
+  .sub-menu.open-drawer {
+    display: flex;
+  }
+}
+@media (hover: none) {
+  .sub-menu {
+    background-color: #4F4D49;
+    color: white;
+    position: fixed;
+    height: 100%;
+    width: 535px;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    padding: var(--main-padding);
+  }
+}
+@media screen and (hover: none) and (max-width: 630px) {
+  .sub-menu {
+    width: 100%;
+  }
+}
+@media (hover: none) {
+  .sub-menu .close-btn {
+    white-space: nowrap;
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+  .sub-menu .close-btn .glyph {
+    color: inherit;
+  }
+  .sub-menu.open-drawer {
+    display: flex;
+  }
+}
+.sub-menu_item {
+  display: flex;
+  padding: var(--main-padding);
+}
+.sub-menu_item::before {
+  content: "/";
+}
+.sub-menu_item.close-btn::before {
+  content: "";
+}
+.sub-menu_item:not(:last-child) {
+  padding-right: calc(var(--main-padding) * 2);
+}
+
+.contact-panel {
+  background-color: #4F4D49;
+  color: white;
+  position: fixed;
+  height: 100%;
+  width: 535px;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  padding: var(--main-padding);
+  display: none;
+  background-color: #DEDEDE;
+  color: #333;
+}
+@media screen and (max-width: 630px) {
+  .contact-panel {
+    width: 100%;
+  }
+}
+.contact-panel .close-btn {
+  white-space: nowrap;
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.contact-panel .close-btn .glyph {
+  color: inherit;
+}
+.contact-panel.open-drawer {
+  display: block;
+}
+
+.about-panel {
+  background-color: #4F4D49;
+  color: white;
+  position: fixed;
+  height: 100%;
+  width: 535px;
+  flex-direction: column;
+  top: 0;
+  right: 0;
+  padding: var(--main-padding);
+  display: none;
+  background-color: #F6F5C8;
+  color: #333;
+}
+@media screen and (max-width: 630px) {
+  .about-panel {
+    width: 100%;
+  }
+}
+.about-panel .close-btn {
+  white-space: nowrap;
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.about-panel .close-btn .glyph {
+  color: inherit;
+}
+.about-panel.open-drawer {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

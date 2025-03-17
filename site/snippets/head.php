@@ -12,4 +12,4 @@
     
     <?= css('assets/css/style.css') ?>
 </head>
-<body>
+<body onload=display_ct();>

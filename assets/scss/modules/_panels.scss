@@ -1,0 +1,18 @@
+.contact-panel {
+    @include drawer;
+    display: none;
+    background-color: #DEDEDE;
+    color: #333;
+    &.open-drawer {
+        display: block;
+    }
+}
+.about-panel {
+    @include drawer;
+    display: none;
+    background-color: #F6F5C8;
+    color: #333;
+    &.open-drawer {
+        display: block;
+    }
+}
