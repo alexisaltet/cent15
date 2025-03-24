@@ -119,6 +119,9 @@ input[type=range] {
   cursor: pointer;
   width: 160px;
 }
+input[type=range]:active {
+  cursor: grabbing !important;
+}
 
 input[type=range]::-webkit-slider-runnable-track {
   background: black;
@@ -143,6 +146,9 @@ input[type=range]::-webkit-slider-thumb {
   background-position: center;
   box-shadow: none;
 }
+input[type=range]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
 
 input[type=range]::-moz-range-thumb {
   cursor: grab;
@@ -154,6 +160,9 @@ input[type=range]::-moz-range-thumb {
   background-image: url("../img/ui/thumb.svg");
   background-repeat: no-repeat;
   background-position: center top 2px;
+}
+input[type=range]::-moz-range-thumb:active {
+  cursor: grabbing;
 }
 
 .controls label {
@@ -374,6 +383,7 @@ input[type=range]::-moz-range-thumb {
   width: 100%;
   display: flex;
   justify-content: center;
+  transform-origin: center;
 }
 
 .project-grid img {
@@ -388,8 +398,18 @@ input[type=range]::-moz-range-thumb {
 .project-control-panel {
   display: flex;
 }
+@media screen and (max-width: 768px) {
+  .project-control-panel {
+    justify-content: space-between;
+  }
+}
 .project-control-panel .filters {
   margin-left: 10vw;
+}
+@media screen and (max-width: 768px) {
+  .project-control-panel .filters {
+    margin-left: 0;
+  }
 }
 .project-control-panel .filters a {
   display: block;

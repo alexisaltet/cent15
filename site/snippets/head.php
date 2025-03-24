@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Lexend+Exa:wght@300&display=swap" rel="stylesheet">
     
-    
     <?= css('assets/css/style.css') ?>
 </head>
 <body onload=display_ct();>

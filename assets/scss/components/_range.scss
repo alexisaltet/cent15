@@ -4,6 +4,9 @@ input[type="range"] {
     background: transparent;
     cursor: pointer;
     width: 160px;
+    &:active {
+        cursor: grabbing!important;
+    }
   }
 
   input[type="range"]::-webkit-slider-runnable-track {
@@ -29,6 +32,9 @@ input[type="range"]::-webkit-slider-thumb {
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: none;
+    &:active {
+        cursor: grabbing;
+    }
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -41,6 +47,9 @@ input[type="range"]::-moz-range-thumb {
     background-image: url('../img/ui/thumb.svg');
     background-repeat: no-repeat;
     background-position: center top 2px;
+    &:active {
+        cursor: grabbing;
+    }
 }
 
 .controls {
